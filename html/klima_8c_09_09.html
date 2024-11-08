@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Klima Anlæg: klima3.ino File Reference</title>
+<title>Klima Anlæg: klima.c++ File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,7 +88,7 @@ $(function(){ initResizable(false); });
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">klima3.ino File Reference</div></div>
+  <div class="headertitle"><div class="title">klima.c++ File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;DHT.h&quot;</code><br />
@@ -97,51 +97,38 @@ $(function(){ initResizable(false); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a79111e78831efb8ac76fa8123357475e" id="r_a79111e78831efb8ac76fa8123357475e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79111e78831efb8ac76fa8123357475e">DHT11_PIN</a>&#160;&#160;&#160;7</td></tr>
-<tr class="memdesc:a79111e78831efb8ac76fa8123357475e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin for DHT11 sensor.  <br /></td></tr>
 <tr class="separator:a79111e78831efb8ac76fa8123357475e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a073dbcb7f5bc4f4b45dc048b55eaff3d" id="r_a073dbcb7f5bc4f4b45dc048b55eaff3d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a073dbcb7f5bc4f4b45dc048b55eaff3d">RED_LED</a>&#160;&#160;&#160;9</td></tr>
-<tr class="memdesc:a073dbcb7f5bc4f4b45dc048b55eaff3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin for Red LED.  <br /></td></tr>
 <tr class="separator:a073dbcb7f5bc4f4b45dc048b55eaff3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa9a0918932bceef70e8eb4dbb988fbe" id="r_aaa9a0918932bceef70e8eb4dbb988fbe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa9a0918932bceef70e8eb4dbb988fbe">YELLOW_LED</a>&#160;&#160;&#160;11</td></tr>
-<tr class="memdesc:aaa9a0918932bceef70e8eb4dbb988fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin for Yellow LED.  <br /></td></tr>
 <tr class="separator:aaa9a0918932bceef70e8eb4dbb988fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01649d652fa50957c6ef3c32b1238038" id="r_a01649d652fa50957c6ef3c32b1238038"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01649d652fa50957c6ef3c32b1238038">GREEN_LED</a>&#160;&#160;&#160;10</td></tr>
-<tr class="memdesc:a01649d652fa50957c6ef3c32b1238038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin for Green LED.  <br /></td></tr>
 <tr class="separator:a01649d652fa50957c6ef3c32b1238038"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0165a0a5be101747a734f0991fd0a35" id="r_ac0165a0a5be101747a734f0991fd0a35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0165a0a5be101747a734f0991fd0a35">WHITE_LED</a>&#160;&#160;&#160;12</td></tr>
-<tr class="memdesc:ac0165a0a5be101747a734f0991fd0a35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin for White LED (thermostat off)  <br /></td></tr>
 <tr class="separator:ac0165a0a5be101747a734f0991fd0a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc2ad14f0789907024ac765711ffd3da" id="r_abc2ad14f0789907024ac765711ffd3da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc2ad14f0789907024ac765711ffd3da">BUTTON_PIN</a>&#160;&#160;&#160;8</td></tr>
-<tr class="memdesc:abc2ad14f0789907024ac765711ffd3da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin for Button to toggle thermostat.  <br /></td></tr>
 <tr class="separator:abc2ad14f0789907024ac765711ffd3da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae89f73e4cdcb650ae5c585818d3a861" id="r_aae89f73e4cdcb650ae5c585818d3a861"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae89f73e4cdcb650ae5c585818d3a861">POT_PIN</a>&#160;&#160;&#160;A0</td></tr>
-<tr class="memdesc:aae89f73e4cdcb650ae5c585818d3a861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analog pin for Potentiometer.  <br /></td></tr>
 <tr class="separator:aae89f73e4cdcb650ae5c585818d3a861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aae0e9b1fa86af6ca46308a22fedc0302" id="r_aae0e9b1fa86af6ca46308a22fedc0302"><td class="memItemLeft" align="right" valign="top">DHT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae0e9b1fa86af6ca46308a22fedc0302">dht11</a> (<a class="el" href="klima_8c_09_09.html#a79111e78831efb8ac76fa8123357475e">DHT11_PIN</a>, DHT11)</td></tr>
+<tr class="memitem:aae0e9b1fa86af6ca46308a22fedc0302" id="r_aae0e9b1fa86af6ca46308a22fedc0302"><td class="memItemLeft" align="right" valign="top">DHT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae0e9b1fa86af6ca46308a22fedc0302">dht11</a> (<a class="el" href="#a79111e78831efb8ac76fa8123357475e">DHT11_PIN</a>, DHT11)</td></tr>
 <tr class="separator:aae0e9b1fa86af6ca46308a22fedc0302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
-<tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the initial state of the system, including initializing sensors and LEDs.  <br /></td></tr>
 <tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
-<tr class="memdesc:afe461d27b9c48d5921c00d521181f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main loop that reads sensor values, updates LED states, and checks button status.  <br /></td></tr>
 <tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a4a2c85bd969880a89fe0d9e6606ca5c3" id="r_a4a2c85bd969880a89fe0d9e6606ca5c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a2c85bd969880a89fe0d9e6606ca5c3">thermostatActive</a> = true</td></tr>
-<tr class="memdesc:a4a2c85bd969880a89fe0d9e6606ca5c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thermostat state.  <br /></td></tr>
 <tr class="separator:a4a2c85bd969880a89fe0d9e6606ca5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b597cd4959bd10930d77a46f4cb58fb" id="r_a2b597cd4959bd10930d77a46f4cb58fb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b597cd4959bd10930d77a46f4cb58fb">targetTemp</a> = 25.0</td></tr>
-<tr class="memdesc:a2b597cd4959bd10930d77a46f4cb58fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Target temperature.  <br /></td></tr>
 <tr class="separator:a2b597cd4959bd10930d77a46f4cb58fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a908a6600439809b00fa906e5c78d381c" id="r_a908a6600439809b00fa906e5c78d381c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a908a6600439809b00fa906e5c78d381c">currentTemp</a> = 0.0</td></tr>
-<tr class="memdesc:a908a6600439809b00fa906e5c78d381c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current measured temperature.  <br /></td></tr>
 <tr class="separator:a908a6600439809b00fa906e5c78d381c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacf87bf148915ccd77ca0c6fcc940fd2" id="r_aacf87bf148915ccd77ca0c6fcc940fd2"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacf87bf148915ccd77ca0c6fcc940fd2">tempTolerance</a> = 1.0</td></tr>
-<tr class="memdesc:aacf87bf148915ccd77ca0c6fcc940fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tolerance for "close enough" temperature.  <br /></td></tr>
 <tr class="separator:aacf87bf148915ccd77ca0c6fcc940fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -157,8 +144,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pin for Button to toggle thermostat. </p>
-
 </div>
 </div>
 <a id="a79111e78831efb8ac76fa8123357475e" name="a79111e78831efb8ac76fa8123357475e"></a>
@@ -172,8 +157,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Pin for DHT11 sensor. </p>
 
 </div>
 </div>
@@ -189,8 +172,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pin for Green LED. </p>
-
 </div>
 </div>
 <a id="aae89f73e4cdcb650ae5c585818d3a861" name="aae89f73e4cdcb650ae5c585818d3a861"></a>
@@ -204,8 +185,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Analog pin for Potentiometer. </p>
 
 </div>
 </div>
@@ -221,8 +200,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pin for Red LED. </p>
-
 </div>
 </div>
 <a id="ac0165a0a5be101747a734f0991fd0a35" name="ac0165a0a5be101747a734f0991fd0a35"></a>
@@ -236,8 +213,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Pin for White LED (thermostat off) </p>
 
 </div>
 </div>
@@ -253,8 +228,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pin for Yellow LED. </p>
-
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -267,7 +240,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">DHT dht11 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="klima_8c_09_09.html#a79111e78831efb8ac76fa8123357475e">DHT11_PIN</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a79111e78831efb8ac76fa8123357475e">DHT11_PIN</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -294,8 +267,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Main loop that reads sensor values, updates LED states, and checks button status. </p>
-
 </div>
 </div>
 <a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
@@ -313,8 +284,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets up the initial state of the system, including initializing sensors and LEDs. </p>
-
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -330,8 +299,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Current measured temperature. </p>
-
 </div>
 </div>
 <a id="a2b597cd4959bd10930d77a46f4cb58fb" name="a2b597cd4959bd10930d77a46f4cb58fb"></a>
@@ -345,8 +312,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Target temperature. </p>
 
 </div>
 </div>
@@ -362,8 +327,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tolerance for "close enough" temperature. </p>
-
 </div>
 </div>
 <a id="a4a2c85bd969880a89fe0d9e6606ca5c3" name="a4a2c85bd969880a89fe0d9e6606ca5c3"></a>
@@ -377,8 +340,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Thermostat state. </p>
 
 </div>
 </div>

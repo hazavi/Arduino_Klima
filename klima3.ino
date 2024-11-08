@@ -1,3 +1,10 @@
+// Libraries: DHT11 by Dhruba Saha, DHT sensor library by Adafruit, Adafruit Unified Sensor
+
+// Grøn: Lyser, når den aflæste temperatur er tæt på den forvalgte temperatur /  Lyser, når currentTemp er inden for ±1°C (tempTolerance) af targetTemp.
+// Rød: Lyser, når den aflæste temperatur er lavere end den forvalgte / Lyser, når currentTemp er under targetTemp minus tolerance.
+// Gul: Lyser, når den aflæste temperatur er højere end den forvalgte / Lyser, når currentTemp er over targetTemp plus tolerance.
+// Hvid: Lyser, når termostaten er afbrudt med knappen / Lyser, når termostaten er slået fra.
+
 #include "DHT.h"
 #include <EEPROM.h>
 
