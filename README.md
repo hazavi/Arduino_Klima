@@ -1,3 +1,7 @@
+# Doxygen
+- [Doxygen Side](https://hazavi.github.io/Arduino_Klima/)
+- [Doxygen Kode documentation](https://hazavi.github.io/Arduino_Klima/html/klima3_8ino.html)
+
 # Konstruktionens opbygning og komponenter
 
 Dette klima anlæg projekt er en simpel termostatstyret løsning ved hjælp af en Arduino. Systemet måler temperaturen med en DHT11-sensor og viser status med fire LED'er. En potentiometer bruges til at justere måltemperaturen, mens en knap kan tænde og slukke termostaten. Måltemperaturen gemmes  i EEPROM, så den huskes, selv hvis strømmen slukkes.
