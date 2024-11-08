@@ -12,7 +12,7 @@
 #define RED_LED 9
 #define YELLOW_LED 11
 #define GREEN_LED 10
-#define WHITE_LED 12  // Pin for hvid LED
+#define WHITE_LED 12  
 #define BUTTON_PIN 8
 #define POT_PIN A0
 
