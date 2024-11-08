@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pot_5fpin_0',['POT_PIN',['../klima_8c_09_09.html#aae89f73e4cdcb650ae5c585818d3a861',1,'POT_PIN:&#160;klima.c++'],['../klima3_8ino.html#aae89f73e4cdcb650ae5c585818d3a861',1,'POT_PIN:&#160;klima3.ino']]]
+  ['led_20status_3a_0',['LED-status:',['../index.html#autotoc_md5',1,'']]],
+  ['loop_1',['loop',['../klima_8c_09_09.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;klima.c++'],['../klima3_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;klima3.ino']]]
 ];

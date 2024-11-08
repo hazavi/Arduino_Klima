@@ -5,6 +5,17 @@
 // Gul: Lyser, når den aflæste temperatur er højere end den forvalgte / Lyser, når currentTemp er over targetTemp plus tolerance.
 // Hvid: Lyser, når termostaten er afbrudt med knappen / Lyser, når termostaten er slået fra.
 
+/**
+ * @file klima3.ino
+ * @author Hazel
+ * @brief Klima Thermostat kode
+ * @version 0.1
+ * @date 2024-11-08
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "DHT.h"
 #include <EEPROM.h>
 
@@ -55,14 +66,14 @@ void loop() {
   // Toggle thermostat status on button press
   if (digitalRead(BUTTON_PIN) == LOW) {
     thermostatActive = !thermostatActive;
-    Serial.println("Knap blev trykket, termostat status ændret!");
+    Serial.println("Knap blev trykket, termostat er afbrudt!");
     delay(300);  // Debounce delay
   }
 
   // Adjust target temperature using potentiometer
   int potValue = analogRead(POT_PIN);
   targetTemp = map(potValue, 0, 1023, 15, 30);
-  Serial.print("Potentiometer justeret, ny forvalgt temperatur: ");
+  Serial.print("Potentiometer justeret: ");
   Serial.println(targetTemp);
 
   EEPROM.put(0, targetTemp);

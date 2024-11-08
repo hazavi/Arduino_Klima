@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['setup_0',['setup',['../klima_8c_09_09.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;klima.c++'],['../klima3_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;klima3.ino']]]
+  ['og_20komponenter_0',['Konstruktionens opbygning og komponenter',['../index.html',1,'']]],
+  ['opbygning_1',['Programmets opbygning',['../index.html#autotoc_md3',1,'']]],
+  ['opbygning_20og_20komponenter_2',['Konstruktionens opbygning og komponenter',['../index.html',1,'']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['white_5fled_0',['WHITE_LED',['../klima_8c_09_09.html#ac0165a0a5be101747a734f0991fd0a35',1,'WHITE_LED:&#160;klima.c++'],['../klima3_8ino.html#ac0165a0a5be101747a734f0991fd0a35',1,'WHITE_LED:&#160;klima3.ino']]]
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['red_5fled_1',['RED_LED',['../klima_8c_09_09.html#a073dbcb7f5bc4f4b45dc048b55eaff3d',1,'RED_LED:&#160;klima.c++'],['../klima3_8ino.html#a073dbcb7f5bc4f4b45dc048b55eaff3d',1,'RED_LED:&#160;klima3.ino']]]
 ];
