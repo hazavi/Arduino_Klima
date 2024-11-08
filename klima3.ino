@@ -1,9 +1,9 @@
 // Libraries: DHT11 by Dhruba Saha, DHT sensor library by Adafruit, Adafruit Unified Sensor
 
-// Grøn: Lyser, når den aflæste temperatur er tæt på den forvalgte temperatur /  Lyser, når currentTemp er inden for ±1°C (tempTolerance) af targetTemp.
-// Rød: Lyser, når den aflæste temperatur er lavere end den forvalgte / Lyser, når currentTemp er under targetTemp minus tolerance.
-// Gul: Lyser, når den aflæste temperatur er højere end den forvalgte / Lyser, når currentTemp er over targetTemp plus tolerance.
-// Hvid: Lyser, når termostaten er afbrudt med knappen / Lyser, når termostaten er slået fra.
+// Grøn LED: Tændes, når temperaturen er tæt på måltemperaturen (±1°C).
+// Rød LED: Tændes, når temperaturen er under måltemperaturen.
+// Gul LED: Tændes, når temperaturen er over måltemperaturen.
+// Hvid LED: Tændes, når termostaten er slukket.
 
 /**
  * @file klima3.ino
@@ -19,23 +19,23 @@
 #include "DHT.h"
 #include <EEPROM.h>
 
-#define DHT11_PIN 7       ///< Pin for DHT11 sensor
-#define RED_LED 9         ///< Pin for Red LED
-#define YELLOW_LED 11     ///< Pin for Yellow LED
-#define GREEN_LED 10      ///< Pin for Green LED
-#define WHITE_LED 12      ///< Pin for White LED (thermostat off)
-#define BUTTON_PIN 8      ///< Pin for Button to toggle thermostat
-#define POT_PIN A0        ///< Analog pin for Potentiometer
+#define DHT11_PIN 7       ///< Pin til DHT11 sensor
+#define RED_LED 9         ///< Pin til Rød LED
+#define YELLOW_LED 11     ///< Pin til Gul LED
+#define GREEN_LED 10      ///< Pin til Grøn LED
+#define WHITE_LED 12      ///< Pin til Hvid LED (slukket termostat)
+#define BUTTON_PIN 8      ///< Pin til knap (tænder/slukker termostaten)
+#define POT_PIN A0        ///< Analog pin til potentiometer
 
 DHT dht11(DHT11_PIN, DHT11);
 
-bool thermostatActive = true; ///< Thermostat state
-float targetTemp = 25.0;      ///< Target temperature
-float currentTemp = 0.0;      ///< Current measured temperature
+bool thermostatActive = true; ///< Er termostaten tændt? 
+float targetTemp = 25.0;      ///< Ønsket temperatur
+float currentTemp = 0.0;      ///< Målt temperatur
 const float tempTolerance = 1.0; ///< Tolerance for "close enough" temperature
 
 /**
- * @brief Sets up the initial state of the system, including initializing sensors and LEDs.
+ * @brief Start indstillinger, sætter sensorer og LED'er op.
  */
 void setup() {
   Serial.begin(9600);
@@ -49,7 +49,7 @@ void setup() {
 
   EEPROM.get(0, targetTemp);
 
-  // Set default temperature if EEPROM data is out of range
+  // Standard temperatur, hvis værdien i EEPROM er uden for 15-30°C
   if (targetTemp < 15 || targetTemp > 30) {
     targetTemp = 25.0;
     EEPROM.put(0, targetTemp);
@@ -60,17 +60,17 @@ void setup() {
 }
 
 /**
- * @brief Main loop that reads sensor values, updates LED states, and checks button status.
+ * @brief Hoveddelen af koden, læser sensordata, opdaterer LED'er og tjekker knappen.
  */
 void loop() {
-  // Toggle thermostat status on button press
+  // Skift termostatens status, hvis knappen trykkes
   if (digitalRead(BUTTON_PIN) == LOW) {
     thermostatActive = !thermostatActive;
     Serial.println("Knap blev trykket, termostat er afbrudt!");
-    delay(300);  // Debounce delay
+    delay(300);  // Ventetid for at undgå gentagelser
   }
 
-  // Adjust target temperature using potentiometer
+  // Juster ønsket temperatur med potentiometer
   int potValue = analogRead(POT_PIN);
   targetTemp = map(potValue, 0, 1023, 15, 30);
   Serial.print("Potentiometer justeret: ");
@@ -78,7 +78,7 @@ void loop() {
 
   EEPROM.put(0, targetTemp);
 
-  // Read current temperature from DHT11 sensor
+  // Læs current temperatur fra DHT11 sensor
   currentTemp = dht11.readTemperature();
 
   // Check if sensor reading failed
@@ -87,10 +87,10 @@ void loop() {
     currentTemp = targetTemp;  // Set current temperature to target as fallback
   }
 
-  // Adjust LED states based on temperature
+  // Opdater LED'er baseret på temperatur
   if (thermostatActive) {
     if (currentTemp < targetTemp - tempTolerance) {
-      digitalWrite(RED_LED, HIGH);   
+      digitalWrite(RED_LED, HIGH);   // Tænd Rød LED (for lav temperatur)
       digitalWrite(GREEN_LED, LOW);  
       digitalWrite(YELLOW_LED, LOW); 
       digitalWrite(WHITE_LED, LOW);  
@@ -98,12 +98,12 @@ void loop() {
     } else if (currentTemp > targetTemp + tempTolerance) {
       digitalWrite(RED_LED, LOW);    
       digitalWrite(GREEN_LED, LOW);  
-      digitalWrite(YELLOW_LED, HIGH);
+      digitalWrite(YELLOW_LED, HIGH);  // Tænd Gul LED (for høj temperatur)
       digitalWrite(WHITE_LED, LOW);  
       Serial.println("GUL lyser [for høj temperatur].");
     } else {
       digitalWrite(RED_LED, LOW);    
-      digitalWrite(GREEN_LED, HIGH); 
+      digitalWrite(GREEN_LED, HIGH);  // Tænd Grøn LED (temperatur er passende)
       digitalWrite(YELLOW_LED, LOW); 
       digitalWrite(WHITE_LED, LOW);  
       Serial.println("GRØN lyser [temperaturen er tæt på den forvalgte].");
@@ -112,7 +112,7 @@ void loop() {
     digitalWrite(RED_LED, LOW);
     digitalWrite(GREEN_LED, LOW);
     digitalWrite(YELLOW_LED, LOW);
-    digitalWrite(WHITE_LED, HIGH);
+    digitalWrite(WHITE_LED, HIGH);   // Tænd Hvid LED (termostaten er slukket)
     Serial.println("Termostat er afbrudt, HVID lyser");
   }
 
@@ -122,5 +122,5 @@ void loop() {
   Serial.print(currentTemp);
   Serial.println(" C");
 
-  delay(2000);
+  delay(2000); // Vent 2 sekunder før næste læsning
 }
