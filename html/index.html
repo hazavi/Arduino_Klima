@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Klima Anlæg: Konstruktionens opbygning og komponenter</title>
+<title>Klima Anlæg: Doxygen</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,14 +84,20 @@ $(function(){ initResizable(false); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Konstruktionens opbygning og komponenter </div></div>
+  <div class="headertitle"><div class="title">Doxygen </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
-<p>Dette klima anlæg projekt er en simpel termostatstyret løsning ved hjælp af en Arduino. Systemet måler temperaturen med en DHT11-sensor og viser status med fire LED'er. En potentiometer bruges til at justere måltemperaturen, mens en knap kan tænde og slukke termostaten. Måltemperaturen gemmes i EEPROM, så den huskes, selv hvis strømmen slukkes.</p>
-<p><img src="../image.png" alt="arduino klima" width="400" class="inline"/></p>
+<ul>
+<li><a href="https://hazavi.github.io/Arduino_Klima/">Doxygen Side</a></li>
+<li><a href="https://hazavi.github.io/Arduino_Klima/html/klima3_8ino.html">Doxygen Kode documentation</a></li>
+</ul>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Komponenter</h1>
+Konstruktionens opbygning og komponenter</h1>
+<p>Dette klima anlæg projekt er en simpel termostatstyret løsning ved hjælp af en Arduino. Systemet måler temperaturen med en DHT11-sensor og viser status med fire LED'er. En potentiometer bruges til at justere måltemperaturen, mens en knap kan tænde og slukke termostaten. Måltemperaturen gemmes i EEPROM, så den huskes, selv hvis strømmen slukkes.</p>
+<p><img src="image.png" alt="arduino klima" width="400" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Komponenter</h2>
 <ul>
 <li><b>DHT11-sensor</b> – Måler temperaturen.</li>
 <li><b>Potentiometer (POT_PIN)</b> – Bruges til at justere måltemperaturen mellem 15°C og 30°C.</li>
@@ -105,11 +111,11 @@ Komponenter</h1>
 </li>
 <li><b>EEPROM</b> – Gemmer måltemperaturen, så den ikke nulstilles, når systemet slukkes.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md2"></a>
-Forbindelser</h1>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Forbindelser</h2>
 <p>Alle komponenter er forbundet til forskellige pins på Arduino’en.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
-Programmets opbygning</h1>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Programmets opbygning</h2>
 <p>Programmet er delt op i tre hoveddele:</p>
 <ol type="1">
 <li><b>Biblioteker og globale variabler:</b><ul>
@@ -130,23 +136,23 @@ Programmets opbygning</h1>
 </ul>
 </li>
 </ol>
-<h1><a class="anchor" id="autotoc_md4"></a>
-Brugervejledning</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Brugervejledning</h2>
 <ol type="1">
 <li>Tænd systemet ved at tænde for Arduinoen. Måltemperaturen bliver hentet fra EEPROM.</li>
 <li>Juster temperaturen ved at dreje på potentiometeret. Den kan justeres fra 15°C til 30°C.</li>
 <li>Skift termostatens status ved at trykke på knappen. Hvid LED lyser, når termostaten er slukket.</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md5"></a>
-LED-status:</h2>
+<h3><a class="anchor" id="autotoc_md6"></a>
+LED-status:</h3>
 <ul>
 <li><b>Grøn</b>: Temperaturen er tæt på måltemperaturen.</li>
 <li><b>Rød</b>: Temperaturen er for lav.</li>
 <li><b>Gul</b>: Temperaturen er for høj.</li>
 <li><b>Hvid</b>: Termostaten er slukket.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
-Seriel Monitor</h2>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Seriel Monitor</h3>
 <p>Seriel Monitor viser aktuelle målinger og status. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
